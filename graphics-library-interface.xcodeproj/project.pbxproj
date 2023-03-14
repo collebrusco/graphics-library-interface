@@ -12,6 +12,8 @@
 		4C40756829C0008A00B4F42C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C40756729C0008A00B4F42C /* CoreGraphics.framework */; };
 		4C40756A29C0008F00B4F42C /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C40756929C0008F00B4F42C /* IOKit.framework */; };
 		4C40756C29C000A900B4F42C /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C40756B29C000A900B4F42C /* libglfw.3.3.dylib */; };
+		4C40757029C022C800B4F42C /* Application.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C40756F29C022C800B4F42C /* Application.cpp */; };
+		4C40757429C02B4B00B4F42C /* f_stopwatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C40757329C02B4B00B4F42C /* f_stopwatch.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,6 +35,10 @@
 		4C40756729C0008A00B4F42C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		4C40756929C0008F00B4F42C /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		4C40756B29C000A900B4F42C /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../opt/homebrew/Cellar/glfw/3.3.7/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
+		4C40756E29C022C800B4F42C /* Application.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Application.h; sourceTree = "<group>"; };
+		4C40756F29C022C800B4F42C /* Application.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Application.cpp; sourceTree = "<group>"; };
+		4C40757229C02B4B00B4F42C /* f_stopwatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = f_stopwatch.h; sourceTree = "<group>"; };
+		4C40757329C02B4B00B4F42C /* f_stopwatch.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = f_stopwatch.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +76,9 @@
 		4C40755C29BFFF7300B4F42C /* graphics-library-interface */ = {
 			isa = PBXGroup;
 			children = (
+				4C40757129C02AF500B4F42C /* util */,
 				4C40755D29BFFF7300B4F42C /* main.cpp */,
+				4C40756D29C0228500B4F42C /* app */,
 			);
 			path = "graphics-library-interface";
 			sourceTree = "<group>";
@@ -84,6 +92,24 @@
 				4C40756529C0007E00B4F42C /* OpenGL.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4C40756D29C0228500B4F42C /* app */ = {
+			isa = PBXGroup;
+			children = (
+				4C40756E29C022C800B4F42C /* Application.h */,
+				4C40756F29C022C800B4F42C /* Application.cpp */,
+			);
+			path = app;
+			sourceTree = "<group>";
+		};
+		4C40757129C02AF500B4F42C /* util */ = {
+			isa = PBXGroup;
+			children = (
+				4C40757229C02B4B00B4F42C /* f_stopwatch.h */,
+				4C40757329C02B4B00B4F42C /* f_stopwatch.cpp */,
+			);
+			path = util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +169,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C40757029C022C800B4F42C /* Application.cpp in Sources */,
+				4C40757429C02B4B00B4F42C /* f_stopwatch.cpp in Sources */,
 				4C40755E29BFFF7300B4F42C /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
