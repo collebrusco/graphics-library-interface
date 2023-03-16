@@ -15,7 +15,6 @@
 		4C40757029C022C800B4F42C /* Application.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C40756F29C022C800B4F42C /* Application.cpp */; };
 		4C40757429C02B4B00B4F42C /* f_stopwatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C40757329C02B4B00B4F42C /* f_stopwatch.cpp */; };
 		4C4F0EC829C184720012F26F /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C4F0EC729C184720012F26F /* Window.cpp */; };
-		4C4F0ECD29C277D60012F26F /* IGFLW.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C4F0ECC29C277D60012F26F /* IGFLW.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,8 +43,6 @@
 		4C4F0EC629C184720012F26F /* Window.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Window.h; sourceTree = "<group>"; };
 		4C4F0EC729C184720012F26F /* Window.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Window.cpp; sourceTree = "<group>"; };
 		4C4F0ECA29C277050012F26F /* gfx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gfx.h; sourceTree = "<group>"; };
-		4C4F0ECB29C277D60012F26F /* IGFLW.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IGFLW.h; sourceTree = "<group>"; };
-		4C4F0ECC29C277D60012F26F /* IGFLW.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = IGFLW.cpp; sourceTree = "<group>"; };
 		4C4F0ECE29C283FF0012F26F /* Updatable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Updatable.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,8 +106,6 @@
 			children = (
 				4C40756E29C022C800B4F42C /* Application.h */,
 				4C40756F29C022C800B4F42C /* Application.cpp */,
-				4C4F0EC629C184720012F26F /* Window.h */,
-				4C4F0EC729C184720012F26F /* Window.cpp */,
 			);
 			path = app;
 			sourceTree = "<group>";
@@ -128,8 +123,8 @@
 			isa = PBXGroup;
 			children = (
 				4C4F0ECA29C277050012F26F /* gfx.h */,
-				4C4F0ECB29C277D60012F26F /* IGFLW.h */,
-				4C4F0ECC29C277D60012F26F /* IGFLW.cpp */,
+				4C4F0EC629C184720012F26F /* Window.h */,
+				4C4F0EC729C184720012F26F /* Window.cpp */,
 			);
 			path = gfx;
 			sourceTree = "<group>";
@@ -194,7 +189,6 @@
 				4C40757029C022C800B4F42C /* Application.cpp in Sources */,
 				4C40757429C02B4B00B4F42C /* f_stopwatch.cpp in Sources */,
 				4C40755E29BFFF7300B4F42C /* main.cpp in Sources */,
-				4C4F0ECD29C277D60012F26F /* IGFLW.cpp in Sources */,
 				4C4F0EC829C184720012F26F /* Window.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

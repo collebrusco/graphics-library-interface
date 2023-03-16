@@ -11,20 +11,39 @@
 #include <vector>
 #include <iostream>
 #include <functional>
+#include <unordered_map>
 #include "../util/f_stopwatch.h"
 #include "../Updatable.h"
 
+typedef uint32_t INIT_FUNC_ID;
+typedef uint32_t UPDATE_FUNC_ID;
+typedef uint32_t DESTROY_FUNC_ID;
+
 class Application {
+private:
+    uint32_t ID_counter;
+    std::unordered_map<INIT_FUNC_ID, std::function<void(void)>> inits;
+    std::unordered_map<UPDATE_FUNC_ID, std::function<void(float)>> updates;
+    std::unordered_map<DESTROY_FUNC_ID, std::function<void(void)>> destroys;
+    uint32_t newID();
 protected:
     float dt;
     ftime::StopWatch watch;
-    std::vector<Updatable*> updates;
+    std::vector<Updatable*> updatables;
     std::function<bool(void)> closer;
 public:
-    Application();
-    void run();
+    // these will be protecteed, public for testing
     void set_terminate_condition(std::function<bool(void)>);
     void enlist(Updatable* obj);
+    INIT_FUNC_ID enlist_init(std::function<void(void)>);
+    UPDATE_FUNC_ID enlist_update(std::function<void(float)>);
+    DESTROY_FUNC_ID enlist_destructor(std::function<void(void)>);
+    void delist_init(INIT_FUNC_ID);
+    void delist_update(UPDATE_FUNC_ID);
+    void delist_destructor(DESTROY_FUNC_ID);
+    
+    Application();
+    void run();
     void init();
     void update();
     void destroy();
