@@ -28,12 +28,13 @@ struct Mouse {
 
 class Window : public Updatable {
 private:
-    void register_handle(GLFWwindow*);
+//    void register_handle(GLFWwindow*);
     void update_buttons(Button*, size_t);
     void update_mouse_data();
     void update_key_data();
     const char* title;
     GLFWwindow* handle;
+    bool active;
 public:
     glm::ivec2 frame;
     float aspect;

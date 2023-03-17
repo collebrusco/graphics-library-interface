@@ -9,47 +9,49 @@
 #include "Window.h"
 #include <iostream>
 
-static std::map<GLFWwindow*, Window*> windowMap;
+// old solution to window handler problem
+//static std::map<GLFWwindow*, Window*> windowMap;
 
-void Window::register_handle(GLFWwindow* handle){
-    assert(windowMap.find(handle) == windowMap.end());
-    windowMap[handle] = this;
-}
+//void Window::register_handle(GLFWwindow* handle){
+//    assert(windowMap.find(handle) == windowMap.end());
+//    windowMap[handle] = this;
+//}
 
 static void size_callback(GLFWwindow *handle, int width, int height){
     glViewport(0, 0, width, height);
-    windowMap[handle]->frame = glm::ivec2(width, height);
-    windowMap[handle]->aspect = (float)width / (float)height;
+    Window& win = *reinterpret_cast<Window*>(glfwGetWindowUserPointer(handle));
+    win.frame = glm::ivec2(width, height);
+    win.aspect = (float)width / (float)height;
 }
 
 static void window_close_callback(GLFWwindow *handle){
-    std::cout << "window " << windowMap[handle]->get_title() << " closed" << std::endl;
+    Window& win = *reinterpret_cast<Window*>(glfwGetWindowUserPointer(handle));
+    win.destroy();
+    std::cout << "window " << win.get_title() << " closed" << std::endl;
     
 }
 
-static void error_callback(int error, const char* description){
-    std::cout << "error: " << description << std::endl;
-}
-
 static void cursor_callback(GLFWwindow *handle, double xp, double yp){
+    Window& win = *reinterpret_cast<Window*>(glfwGetWindowUserPointer(handle));
     glm::vec2 p = glm::vec2(xp,yp);
-    windowMap[handle]->mouse.delta = p - windowMap[handle]->mouse.pos;
-    windowMap[handle]->mouse.delta.x = glm::clamp(windowMap[handle]->mouse.delta.x, -100.0f, 100.0f);
-    windowMap[handle]->mouse.delta.y = glm::clamp(windowMap[handle]->mouse.delta.y, -100.0f, 100.0f);
+    win.mouse.delta = p - win.mouse.pos;
+    win.mouse.delta.x = glm::clamp(win.mouse.delta.x, -100.0f, 100.0f);
+    win.mouse.delta.y = glm::clamp(win.mouse.delta.y, -100.0f, 100.0f);
 
-    windowMap[handle]->mouse.pos = p;
+    win.mouse.pos = p;
 }
 
 static void key_callback(GLFWwindow* handle, int key, int scancode, int action, int mods){
+    Window& win = *reinterpret_cast<Window*>(glfwGetWindowUserPointer(handle));
     if (key < 0) {
         return;
     }
     switch (action){
         case GLFW_PRESS:
-            windowMap[handle]->keyboard.keys[key].down = true;
+            win.keyboard.keys[key].down = true;
             break;
         case GLFW_RELEASE:
-            windowMap[handle]->keyboard.keys[key].down = false;
+            win.keyboard.keys[key].down = false;
             break;
         default:
             break;
@@ -61,15 +63,16 @@ static void key_callback(GLFWwindow* handle, int key, int scancode, int action, 
 }
 
 static void mouse_callback(GLFWwindow *handle, int button, int action, int mods){
+    Window& win = *reinterpret_cast<Window*>(glfwGetWindowUserPointer(handle));
     if (button < 0){
         return;
     }
     switch (action) {
         case GLFW_PRESS:
-            windowMap[handle]->mouse.buttons[button].down = true;
+            win.mouse.buttons[button].down = true;
             break;
         case GLFW_RELEASE:
-            windowMap[handle]->mouse.buttons[button].down = false;
+            win.mouse.buttons[button].down = false;
             break;
         default:
             break;
@@ -77,33 +80,16 @@ static void mouse_callback(GLFWwindow *handle, int button, int action, int mods)
 }
 
 static void scroll_callback(GLFWwindow* handle, double xoffset, double yoffset){
-    windowMap[handle]->mouse.scroll.x = xoffset;
-    windowMap[handle]->mouse.scroll.y = yoffset;
-}
-
-
-static void initGLFW(){
-    static bool isinit = false;
-    if (!isinit){
-        glfwSetErrorCallback(error_callback);
-        if (!glfwInit()){
-            std::cout << "Failed to initialize GLFW! :(\n";
-            throw ("failed GLFW init");
-        }
-    #ifdef __APPLE__
-        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
-        glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GLFW_TRUE);
-        glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-    #endif
-        isinit = true;
-    }
+    Window& win = *reinterpret_cast<Window*>(glfwGetWindowUserPointer(handle));
+    win.mouse.scroll.x = xoffset;
+    win.mouse.scroll.y = yoffset;
 }
 
 // ================================
 
 Window::Window(const char* t){
     title = t;
+    active = false;
 }
 
 const char* Window::get_title(){
@@ -135,17 +121,18 @@ void Window::update_key_data(){
 }
 
 void Window::init() {
-    initGLFW();
     frame.x = 960;
     frame.y = 720;
     aspect = (float)frame.x / (float)frame.y;
     handle = glfwCreateWindow(frame.x, frame.y, title, NULL, NULL);
     if (!handle){ //redundant
         glfwTerminate();
-        std::cout << "Failed to create window!" << std::endl;
+        std::cout << "Failed to create window! make sure glfw is initialized!" << std::endl;
         assert(false);
     }
-    register_handle(handle);
+    active = true;
+//    register_handle(handle);
+    glfwSetWindowUserPointer(handle, reinterpret_cast<void*>(this));
     
     glfwSetFramebufferSizeCallback(handle, size_callback);
     glfwSetWindowCloseCallback(handle, window_close_callback);
@@ -158,13 +145,18 @@ void Window::init() {
     glfwSwapInterval(0);
 }
 void Window::update(float dt) {
-    update_mouse_data();
-    update_key_data();
-    glfwPollEvents();
-    glfwSwapBuffers(handle);
+    if (active){
+        update_mouse_data();
+        update_key_data();
+        glfwPollEvents();
+        glfwSwapBuffers(handle);
+    }
 }
 void Window::destroy() {
-    glfwTerminate();
+    if (active){
+        glfwDestroyWindow(handle);
+        active = false;
+    }
 }
 
 bool Window::should_close(){
