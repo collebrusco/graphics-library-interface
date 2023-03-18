@@ -90,6 +90,28 @@ static void scroll_callback(GLFWwindow* handle, double xoffset, double yoffset){
 Window::Window(const char* t){
     title = t;
     active = false;
+    frame.x = 960;
+    frame.y = 720;
+    aspect = (float)frame.x / (float)frame.y;
+    handle = glfwCreateWindow(frame.x, frame.y, title, NULL, NULL);
+    if (!handle){ //redundant
+        glfwTerminate();
+        std::cout << "Failed to create window! make sure glfw is initialized!" << std::endl;
+        assert(false);
+    }
+    active = true;
+//    register_handle(handle);
+    glfwSetWindowUserPointer(handle, reinterpret_cast<void*>(this));
+    
+    glfwSetFramebufferSizeCallback(handle, size_callback);
+    glfwSetWindowCloseCallback(handle, window_close_callback);
+    glfwSetKeyCallback(handle, key_callback);
+    glfwSetScrollCallback(handle, scroll_callback);
+    glfwSetCursorPosCallback(handle, cursor_callback);
+    glfwSetMouseButtonCallback(handle, mouse_callback);
+    
+    glfwMakeContextCurrent(handle);
+    glfwSwapInterval(0);
 }
 
 const char* Window::get_title(){
@@ -121,28 +143,6 @@ void Window::update_key_data(){
 }
 
 void Window::init() {
-    frame.x = 960;
-    frame.y = 720;
-    aspect = (float)frame.x / (float)frame.y;
-    handle = glfwCreateWindow(frame.x, frame.y, title, NULL, NULL);
-    if (!handle){ //redundant
-        glfwTerminate();
-        std::cout << "Failed to create window! make sure glfw is initialized!" << std::endl;
-        assert(false);
-    }
-    active = true;
-//    register_handle(handle);
-    glfwSetWindowUserPointer(handle, reinterpret_cast<void*>(this));
-    
-    glfwSetFramebufferSizeCallback(handle, size_callback);
-    glfwSetWindowCloseCallback(handle, window_close_callback);
-    glfwSetKeyCallback(handle, key_callback);
-    glfwSetScrollCallback(handle, scroll_callback);
-    glfwSetCursorPosCallback(handle, cursor_callback);
-    glfwSetMouseButtonCallback(handle, mouse_callback);
-    
-    glfwMakeContextCurrent(handle);
-    glfwSwapInterval(0);
 }
 void Window::update(float dt) {
     if (active){

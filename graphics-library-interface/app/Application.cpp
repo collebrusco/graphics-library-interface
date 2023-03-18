@@ -32,7 +32,23 @@ void Application::set_terminate_condition(std::function<bool(void)> c){
     closer = c;
 }
 void Application::enlist(Updatable* obj){
-    updatables.push_back(obj);
+    updatables.emplace(obj, true);
+    updatables[obj] = true;
+}
+
+void Application::enable(Updatable* obj){
+    updatables[obj] = true;
+}
+
+void Application::disable(Updatable* obj){
+    updatables[obj] = false;
+}
+
+//void Application::isEnabled(Updatable* obj){
+//}
+
+void Application::delist(Updatable* obj){
+    updatables.erase(obj);
 }
 
 uint32_t Application::newID(){
@@ -70,23 +86,27 @@ void Application::delist_destructor(DESTROY_FUNC_ID i){
 
 void Application::init(){
     watch.start();
-    for (auto i : updatables)
-        i->init();
+    for (auto i : updatables){
+        if (i.second)
+            i.first->init();
+    }
     for (auto i : inits)
         i.second();
     dt = watch.stop_reset_start();
 }
 void Application::update(){
-    for (auto u : updatables)
-        u->update(dt);
+    for (auto u : updatables){
+        if (u.second)
+            u.first->update(dt);
+    }
     for (auto i : updates)
         i.second(dt);
     dt = watch.stop_reset_start(ftime::SECONDS);
 }
 void Application::destroy(){
     for (auto d : updatables){
-        d->destroy();
-        delete d;
+        d.first->destroy();
+        delete d.first;
     }
     for (auto i : destroys)
         i.second();

@@ -13,8 +13,9 @@ static Application* app;
 int main(int argc, const char * argv[]) {
     
     Graphics::init();
-    
     Window& w = Graphics::createWindow("test");
+    Graphics::shaders.emplace_shader("test_vert_shader", "test_frag_shader");
+
         
     app = new Application();
     app->enlist(&w);

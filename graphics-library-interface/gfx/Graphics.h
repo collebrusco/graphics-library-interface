@@ -9,6 +9,7 @@
 #ifndef Graphics_h
 #define Graphics_h
 #include "Window.h"
+#include "ShaderContainer.h"
 
 class Graphics {
 private:
@@ -19,6 +20,7 @@ public:
     static void destroy();
     
     static Window& createWindow(const char* title);
+    static ShaderContainer shaders;
 };
 
 #endif /* Graphics_h */
