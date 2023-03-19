@@ -9,7 +9,7 @@
 #ifndef Graphics_h
 #define Graphics_h
 #include "Window.h"
-#include "ShaderContainer.h"
+#include "ID_Map.h"
 
 class Graphics {
 private:
@@ -20,7 +20,7 @@ public:
     static void destroy();
     
     static Window& createWindow(const char* title);
-    static ShaderContainer shaders;
+    static ID_Map<Shader> shaders;
 };
 
 #endif /* Graphics_h */

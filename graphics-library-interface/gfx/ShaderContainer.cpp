@@ -8,23 +8,26 @@
 
 #include "ShaderContainer.h"
 
-SHADER_ID ShaderContainer::counter = 0;
+//ID_Map::ID_Map(){
+//    counter = 0;
+//}
 
-SHADER_ID ShaderContainer::emplace_shader(const char * vn, const char * fn){
-    SHADER_ID res = counter++;
-    shaderMap[res].compileAndLink(vn, fn);
-    return res;
-}
+//SHADER_ID ShaderContainer::emplace_shader(const char * vn, const char * fn){
+//    SHADER_ID res = counter++;
+////    shaderMap[res].compileAndLink(vn, fn);
+//    shaderMap.emplace(res, args...);
+//    return res;
+//}
 
-Shader& ShaderContainer::get(SHADER_ID id){
-    return shaderMap[id];
-}
-
-void ShaderContainer::remove(SHADER_ID id){
-    shaderMap[id].destroy();
-    shaderMap.erase(id);
-}
-
-Shader& ShaderContainer::operator[](SHADER_ID id){
-    return shaderMap[id];
-}
+//Shader& ID_Map::get(SHADER_ID id){
+//    return shaderMap[id];
+//}
+//
+//void ID_Map::remove(SHADER_ID id){
+//    shaderMap[id].destroy();
+//    shaderMap.erase(id);
+//}
+//
+//Shader& ID_Map::operator[](SHADER_ID id){
+//    return shaderMap[id];
+//}

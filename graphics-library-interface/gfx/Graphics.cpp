@@ -10,7 +10,7 @@
 #include <iostream>
 
 bool Graphics::isinit = false;
-ShaderContainer Graphics::shaders;
+ID_Map<Shader> Graphics::shaders;
 
 static void error_callback(int error, const char* description){
     std::cout << "error: " << description << std::endl;

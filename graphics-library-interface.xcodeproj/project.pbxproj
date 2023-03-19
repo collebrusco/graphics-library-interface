@@ -17,7 +17,6 @@
 		4C4F0EC829C184720012F26F /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C4F0EC729C184720012F26F /* Window.cpp */; };
 		4C78FDA129C50885008B7AB0 /* Graphics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C78FDA029C50885008B7AB0 /* Graphics.cpp */; };
 		4C78FDA429C518FC008B7AB0 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C78FDA329C518FC008B7AB0 /* Shader.cpp */; };
-		4C78FDA729C51A06008B7AB0 /* ShaderContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C78FDA629C51A06008B7AB0 /* ShaderContainer.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,8 +50,7 @@
 		4C78FDA029C50885008B7AB0 /* Graphics.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Graphics.cpp; sourceTree = "<group>"; };
 		4C78FDA229C518FC008B7AB0 /* Shader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
 		4C78FDA329C518FC008B7AB0 /* Shader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
-		4C78FDA529C51A06008B7AB0 /* ShaderContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderContainer.h; sourceTree = "<group>"; };
-		4C78FDA629C51A06008B7AB0 /* ShaderContainer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderContainer.cpp; sourceTree = "<group>"; };
+		4C78FDA529C51A06008B7AB0 /* ID_Map.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ID_Map.h; sourceTree = "<group>"; };
 		4C78FDA929C51E9D008B7AB0 /* test_vert_shader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = test_vert_shader.glsl; sourceTree = "<group>"; };
 		4C78FDAA29C51ECB008B7AB0 /* test_frag_shader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = test_frag_shader.glsl; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -141,8 +139,7 @@
 				4C78FDA029C50885008B7AB0 /* Graphics.cpp */,
 				4C78FDA229C518FC008B7AB0 /* Shader.h */,
 				4C78FDA329C518FC008B7AB0 /* Shader.cpp */,
-				4C78FDA529C51A06008B7AB0 /* ShaderContainer.h */,
-				4C78FDA629C51A06008B7AB0 /* ShaderContainer.cpp */,
+				4C78FDA529C51A06008B7AB0 /* ID_Map.h */,
 			);
 			path = gfx;
 			sourceTree = "<group>";
@@ -218,7 +215,6 @@
 				4C40755E29BFFF7300B4F42C /* main.cpp in Sources */,
 				4C78FDA129C50885008B7AB0 /* Graphics.cpp in Sources */,
 				4C78FDA429C518FC008B7AB0 /* Shader.cpp in Sources */,
-				4C78FDA729C51A06008B7AB0 /* ShaderContainer.cpp in Sources */,
 				4C4F0EC829C184720012F26F /* Window.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
