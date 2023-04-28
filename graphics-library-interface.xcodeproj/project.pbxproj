@@ -17,6 +17,10 @@
 		4C4F0EC829C184720012F26F /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C4F0EC729C184720012F26F /* Window.cpp */; };
 		4C78FDA129C50885008B7AB0 /* Graphics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C78FDA029C50885008B7AB0 /* Graphics.cpp */; };
 		4C78FDA429C518FC008B7AB0 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C78FDA329C518FC008B7AB0 /* Shader.cpp */; };
+		4C78FDAD29C6B533008B7AB0 /* Vertex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C78FDAC29C6B533008B7AB0 /* Vertex.cpp */; };
+		4C78FDBA29C6BE16008B7AB0 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C78FDB929C6BE16008B7AB0 /* CoreFoundation.framework */; };
+		4C78FDBC29C6BE1F008B7AB0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C78FDBB29C6BE1F008B7AB0 /* Foundation.framework */; };
+		4C78FDBE29C6BE2E008B7AB0 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C78FDBD29C6BE2E008B7AB0 /* AppKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -53,6 +57,14 @@
 		4C78FDA529C51A06008B7AB0 /* ID_Map.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ID_Map.h; sourceTree = "<group>"; };
 		4C78FDA929C51E9D008B7AB0 /* test_vert_shader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = test_vert_shader.glsl; sourceTree = "<group>"; };
 		4C78FDAA29C51ECB008B7AB0 /* test_frag_shader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = test_frag_shader.glsl; sourceTree = "<group>"; };
+		4C78FDAB29C6B533008B7AB0 /* Vertex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vertex.h; sourceTree = "<group>"; };
+		4C78FDAC29C6B533008B7AB0 /* Vertex.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Vertex.cpp; sourceTree = "<group>"; };
+		4C78FDB729C6BCA0008B7AB0 /* stb_image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
+		4C78FDB829C6BCA0008B7AB0 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		4C78FDB929C6BE16008B7AB0 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		4C78FDBB29C6BE1F008B7AB0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4C78FDBD29C6BE2E008B7AB0 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		4C78FDBF29C7F4BD008B7AB0 /* Meshes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Meshes.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +72,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C78FDBE29C6BE2E008B7AB0 /* AppKit.framework in Frameworks */,
+				4C78FDBC29C6BE1F008B7AB0 /* Foundation.framework in Frameworks */,
+				4C78FDBA29C6BE16008B7AB0 /* CoreFoundation.framework in Frameworks */,
 				4C40756C29C000A900B4F42C /* libglfw.3.3.dylib in Frameworks */,
 				4C40756A29C0008F00B4F42C /* IOKit.framework in Frameworks */,
 				4C40756829C0008A00B4F42C /* CoreGraphics.framework in Frameworks */,
@@ -90,6 +105,7 @@
 		4C40755C29BFFF7300B4F42C /* graphics-library-interface */ = {
 			isa = PBXGroup;
 			children = (
+				4C78FDAE29C6B9EA008B7AB0 /* lib */,
 				4C4F0EC929C275970012F26F /* gfx */,
 				4C40757129C02AF500B4F42C /* util */,
 				4C40755D29BFFF7300B4F42C /* main.cpp */,
@@ -102,6 +118,9 @@
 		4C40756429C0007E00B4F42C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4C78FDBD29C6BE2E008B7AB0 /* AppKit.framework */,
+				4C78FDBB29C6BE1F008B7AB0 /* Foundation.framework */,
+				4C78FDB929C6BE16008B7AB0 /* CoreFoundation.framework */,
 				4C40756B29C000A900B4F42C /* libglfw.3.3.dylib */,
 				4C40756929C0008F00B4F42C /* IOKit.framework */,
 				4C40756729C0008A00B4F42C /* CoreGraphics.framework */,
@@ -140,6 +159,9 @@
 				4C78FDA229C518FC008B7AB0 /* Shader.h */,
 				4C78FDA329C518FC008B7AB0 /* Shader.cpp */,
 				4C78FDA529C51A06008B7AB0 /* ID_Map.h */,
+				4C78FDAB29C6B533008B7AB0 /* Vertex.h */,
+				4C78FDAC29C6B533008B7AB0 /* Vertex.cpp */,
+				4C78FDBF29C7F4BD008B7AB0 /* Meshes.h */,
 			);
 			path = gfx;
 			sourceTree = "<group>";
@@ -151,6 +173,31 @@
 				4C78FDAA29C51ECB008B7AB0 /* test_frag_shader.glsl */,
 			);
 			path = Shaders;
+			sourceTree = "<group>";
+		};
+		4C78FDAE29C6B9EA008B7AB0 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				4C78FDB529C6BCA0008B7AB0 /* stb */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		4C78FDB529C6BCA0008B7AB0 /* stb */ = {
+			isa = PBXGroup;
+			children = (
+				4C78FDB629C6BCA0008B7AB0 /* include */,
+				4C78FDB829C6BCA0008B7AB0 /* LICENSE.txt */,
+			);
+			path = stb;
+			sourceTree = "<group>";
+		};
+		4C78FDB629C6BCA0008B7AB0 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				4C78FDB729C6BCA0008B7AB0 /* stb_image.h */,
+			);
+			path = include;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,6 +257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C78FDAD29C6B533008B7AB0 /* Vertex.cpp in Sources */,
 				4C40757029C022C800B4F42C /* Application.cpp in Sources */,
 				4C40757429C02B4B00B4F42C /* f_stopwatch.cpp in Sources */,
 				4C40755E29BFFF7300B4F42C /* main.cpp in Sources */,

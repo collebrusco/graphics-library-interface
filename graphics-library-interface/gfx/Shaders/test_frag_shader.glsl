@@ -25,6 +25,7 @@ void main(){
     if (iPos.y == 0){
         clr = vec4(0.1, 0.1, 0.15, 1);
     }
-    outColor = clr;
+//    outColor = clr;
 //    outColor = vec4(rand(iUV.xy) - 0.2f, rand(iUV.yx) - 0.2f, rand(vec2(rand(iUV.yy), rand(iUV.xx))) - 0.2f, 1.f);                             // fine noise
+    outColor = vec4(0, 0, 0, 1);
 }

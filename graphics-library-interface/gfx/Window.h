@@ -47,8 +47,8 @@ public:
     virtual void update(float dt) override;
     virtual void destroy() override;
     
-    const char* get_title();
-    bool should_close();
+    const char* get_title() const ;
+    bool should_close() const;
 };
 
 #endif /* Window_h */

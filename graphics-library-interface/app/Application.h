@@ -14,6 +14,7 @@
 #include <unordered_map>
 #include "../util/f_stopwatch.h"
 #include "../Updatable.h"
+#include "../gfx/Window.h"
 
 typedef uint32_t INIT_FUNC_ID;
 typedef uint32_t UPDATE_FUNC_ID;
@@ -35,6 +36,7 @@ protected:
 public:
     // these will be protecteed, public for testing
     void set_terminate_condition(std::function<bool(void)>);
+    void set_window_terminate_condition(Window const&);
     void enlist(Updatable* obj);
     void enable(Updatable* obj);
     void disable(Updatable* obj);

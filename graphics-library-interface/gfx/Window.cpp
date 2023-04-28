@@ -114,7 +114,7 @@ Window::Window(const char* t){
     glfwSwapInterval(0);
 }
 
-const char* Window::get_title(){
+const char* Window::get_title() const {
     return title;
 }
 
@@ -159,6 +159,6 @@ void Window::destroy() {
     }
 }
 
-bool Window::should_close(){
+bool Window::should_close() const {
     return glfwWindowShouldClose(handle);
 }

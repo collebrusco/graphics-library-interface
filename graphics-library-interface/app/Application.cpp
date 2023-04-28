@@ -94,13 +94,13 @@ void Application::init(){
         i.second();
     dt = watch.stop_reset_start();
 }
-void Application::update(){
+void Application::update(){ //TODO: sigh, gonna have to allow priority setting here, it's inevitable
+    for (auto i : updates)
+        i.second(dt);
     for (auto u : updatables){
         if (u.second)
             u.first->update(dt);
     }
-    for (auto i : updates)
-        i.second(dt);
     dt = watch.stop_reset_start(ftime::SECONDS);
 }
 void Application::destroy(){
@@ -114,5 +114,10 @@ void Application::destroy(){
 float Application::getFPS(){
     return 1 / dt;
 }
+
+void Application::set_window_terminate_condition(const Window & w) {
+    this->set_terminate_condition([&]()->bool{return w.should_close();});
+}
+
 
 
