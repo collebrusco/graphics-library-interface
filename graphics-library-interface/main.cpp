@@ -22,7 +22,6 @@ int main(int argc, const char * argv[]) {
         
     app = new Application();
     app->enlist(&w);
-//    app->enlist_update([&](float){Graphics::clear(false);});
     app->enlist_update([&](float){
         Graphics::clear(false);
         Graphics::shaders[shaderID].bind();
