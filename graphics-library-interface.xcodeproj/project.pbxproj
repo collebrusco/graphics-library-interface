@@ -18,7 +18,7 @@
 		4C78FDBC29C6BE1F008B7AB0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C78FDBB29C6BE1F008B7AB0 /* Foundation.framework */; };
 		4C78FDBE29C6BE2E008B7AB0 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C78FDBD29C6BE2E008B7AB0 /* AppKit.framework */; };
 		4CCD528D2A0C6491001C5045 /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CCD527F2A0C6491001C5045 /* Window.cpp */; };
-		4CCD528E2A0C6491001C5045 /* flgl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CCD52802A0C6491001C5045 /* flgl.cpp */; };
+		4CCD528E2A0C6491001C5045 /* Graphics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CCD52802A0C6491001C5045 /* Graphics.cpp */; };
 		4CCD528F2A0C6491001C5045 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CCD52832A0C6491001C5045 /* Shader.cpp */; };
 		4CCD52902A0C6491001C5045 /* Vertex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CCD528B2A0C6491001C5045 /* Vertex.cpp */; };
 /* End PBXBuildFile section */
@@ -57,8 +57,8 @@
 		4CCD527C2A0C6491001C5045 /* Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
 		4CCD527D2A0C6491001C5045 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		4CCD527F2A0C6491001C5045 /* Window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Window.cpp; sourceTree = "<group>"; };
-		4CCD52802A0C6491001C5045 /* flgl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = flgl.cpp; sourceTree = "<group>"; };
-		4CCD52812A0C6491001C5045 /* flgl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flgl.h; sourceTree = "<group>"; };
+		4CCD52802A0C6491001C5045 /* Graphics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Graphics.cpp; sourceTree = "<group>"; };
+		4CCD52812A0C6491001C5045 /* Graphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Graphics.h; sourceTree = "<group>"; };
 		4CCD52822A0C6491001C5045 /* Window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Window.h; sourceTree = "<group>"; };
 		4CCD52832A0C6491001C5045 /* Shader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
 		4CCD52842A0C6491001C5045 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -183,8 +183,8 @@
 				4CCD527C2A0C6491001C5045 /* Shader.h */,
 				4CCD527D2A0C6491001C5045 /* LICENSE */,
 				4CCD527F2A0C6491001C5045 /* Window.cpp */,
-				4CCD52802A0C6491001C5045 /* flgl.cpp */,
-				4CCD52812A0C6491001C5045 /* flgl.h */,
+				4CCD52802A0C6491001C5045 /* Graphics.cpp */,
+				4CCD52812A0C6491001C5045 /* Graphics.h */,
 				4CCD52822A0C6491001C5045 /* Window.h */,
 				4CCD52832A0C6491001C5045 /* Shader.cpp */,
 				4CCD52842A0C6491001C5045 /* README.md */,
@@ -266,7 +266,7 @@
 				4C40757029C022C800B4F42C /* Application.cpp in Sources */,
 				4CCD52902A0C6491001C5045 /* Vertex.cpp in Sources */,
 				4CCD528D2A0C6491001C5045 /* Window.cpp in Sources */,
-				4CCD528E2A0C6491001C5045 /* flgl.cpp in Sources */,
+				4CCD528E2A0C6491001C5045 /* Graphics.cpp in Sources */,
 				4C40757429C02B4B00B4F42C /* f_stopwatch.cpp in Sources */,
 				4CCD528F2A0C6491001C5045 /* Shader.cpp in Sources */,
 				4C40755E29BFFF7300B4F42C /* main.cpp in Sources */,
