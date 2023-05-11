@@ -6,7 +6,7 @@
 //
 #include <iostream>
 #include "app/Application.h"
-#include "flgl/Graphics.h"
+#include "flgl/flgl/Graphics.h"
 
 #include "Meshes.h"
 
@@ -21,11 +21,15 @@ int main(int argc, const char * argv[]) {
     Graphics::setClearColor(0.5f, 0.f, 0.f, 0.f);
         
     app = new Application();
-    app->enlist(&w);
+//    app->enlist(&w);
     app->enlist_update([&](float){
         Graphics::clear(false);
         Graphics::shaders[shaderID].bind();
         Graphics::DrawMesh(Graphics::meshes[tileID]);
+        w.update();
+    });
+    app->enlist_destructor([&](void){
+        w.destroy();
     });
     app->set_window_terminate_condition(w);
     
