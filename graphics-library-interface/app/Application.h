@@ -14,7 +14,7 @@
 #include <unordered_map>
 #include "../util/f_stopwatch.h"
 #include "../Updatable.h"
-#include "../gfx/Window.h"
+#include "../flgl/Window.h"
 
 typedef uint32_t INIT_FUNC_ID;
 typedef uint32_t UPDATE_FUNC_ID;

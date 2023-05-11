@@ -6,7 +6,7 @@
 //
 #include <iostream>
 #include "app/Application.h"
-#include "gfx/Graphics.h"
+#include "flgl/Graphics.h"
 
 #include "Meshes.h"
 

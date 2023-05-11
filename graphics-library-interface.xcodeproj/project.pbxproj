@@ -47,8 +47,6 @@
 		4C40757229C02B4B00B4F42C /* f_stopwatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = f_stopwatch.h; sourceTree = "<group>"; };
 		4C40757329C02B4B00B4F42C /* f_stopwatch.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = f_stopwatch.cpp; sourceTree = "<group>"; };
 		4C4F0ECE29C283FF0012F26F /* Updatable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Updatable.h; sourceTree = "<group>"; };
-		4C78FDB729C6BCA0008B7AB0 /* stb_image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
-		4C78FDB829C6BCA0008B7AB0 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		4C78FDB929C6BE16008B7AB0 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		4C78FDBB29C6BE1F008B7AB0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4C78FDBD29C6BE2E008B7AB0 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -68,6 +66,9 @@
 		4CCD52892A0C6491001C5045 /* test_frag_shader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test_frag_shader.glsl; sourceTree = "<group>"; };
 		4CCD528A2A0C6491001C5045 /* test_vert_shader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test_vert_shader.glsl; sourceTree = "<group>"; };
 		4CCD528B2A0C6491001C5045 /* Vertex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vertex.cpp; sourceTree = "<group>"; };
+		4CCD52922A0C6668001C5045 /* flgl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = flgl.h; sourceTree = "<group>"; };
+		4CCD52952A0C67D1001C5045 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		4CCD52972A0C67D1001C5045 /* stb_image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,46 +154,19 @@
 		4C78FDAE29C6B9EA008B7AB0 /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				4C78FDB529C6BCA0008B7AB0 /* stb */,
 			);
 			path = lib;
-			sourceTree = "<group>";
-		};
-		4C78FDB529C6BCA0008B7AB0 /* stb */ = {
-			isa = PBXGroup;
-			children = (
-				4C78FDB629C6BCA0008B7AB0 /* include */,
-				4C78FDB829C6BCA0008B7AB0 /* LICENSE.txt */,
-			);
-			path = stb;
-			sourceTree = "<group>";
-		};
-		4C78FDB629C6BCA0008B7AB0 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				4C78FDB729C6BCA0008B7AB0 /* stb_image.h */,
-			);
-			path = include;
 			sourceTree = "<group>";
 		};
 		4CCD52792A0C6491001C5045 /* flgl */ = {
 			isa = PBXGroup;
 			children = (
-				4CCD527A2A0C6491001C5045 /* Vertex.h */,
-				4CCD527B2A0C6491001C5045 /* ID_Map.h */,
-				4CCD527C2A0C6491001C5045 /* Shader.h */,
+				4CCD52932A0C67D1001C5045 /* lib */,
+				4CCD52912A0C660F001C5045 /* flgl */,
 				4CCD527D2A0C6491001C5045 /* LICENSE */,
-				4CCD527F2A0C6491001C5045 /* Window.cpp */,
-				4CCD52802A0C6491001C5045 /* Graphics.cpp */,
-				4CCD52812A0C6491001C5045 /* Graphics.h */,
-				4CCD52822A0C6491001C5045 /* Window.h */,
-				4CCD52832A0C6491001C5045 /* Shader.cpp */,
 				4CCD52842A0C6491001C5045 /* README.md */,
-				4CCD52852A0C6491001C5045 /* Meshes.h */,
 				4CCD52862A0C6491001C5045 /* .gitignore */,
-				4CCD52872A0C6491001C5045 /* gfx.h */,
-				4CCD52882A0C6491001C5045 /* Shaders */,
-				4CCD528B2A0C6491001C5045 /* Vertex.cpp */,
+				4CCD52922A0C6668001C5045 /* flgl.h */,
 			);
 			path = flgl;
 			sourceTree = "<group>";
@@ -204,6 +178,50 @@
 				4CCD528A2A0C6491001C5045 /* test_vert_shader.glsl */,
 			);
 			path = Shaders;
+			sourceTree = "<group>";
+		};
+		4CCD52912A0C660F001C5045 /* flgl */ = {
+			isa = PBXGroup;
+			children = (
+				4CCD52882A0C6491001C5045 /* Shaders */,
+				4CCD528B2A0C6491001C5045 /* Vertex.cpp */,
+				4CCD527A2A0C6491001C5045 /* Vertex.h */,
+				4CCD527B2A0C6491001C5045 /* ID_Map.h */,
+				4CCD527C2A0C6491001C5045 /* Shader.h */,
+				4CCD527F2A0C6491001C5045 /* Window.cpp */,
+				4CCD52802A0C6491001C5045 /* Graphics.cpp */,
+				4CCD52812A0C6491001C5045 /* Graphics.h */,
+				4CCD52822A0C6491001C5045 /* Window.h */,
+				4CCD52832A0C6491001C5045 /* Shader.cpp */,
+				4CCD52852A0C6491001C5045 /* Meshes.h */,
+				4CCD52872A0C6491001C5045 /* gfx.h */,
+			);
+			path = flgl;
+			sourceTree = "<group>";
+		};
+		4CCD52932A0C67D1001C5045 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				4CCD52942A0C67D1001C5045 /* stb */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		4CCD52942A0C67D1001C5045 /* stb */ = {
+			isa = PBXGroup;
+			children = (
+				4CCD52962A0C67D1001C5045 /* include */,
+				4CCD52952A0C67D1001C5045 /* LICENSE.txt */,
+			);
+			path = stb;
+			sourceTree = "<group>";
+		};
+		4CCD52962A0C67D1001C5045 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				4CCD52972A0C67D1001C5045 /* stb_image.h */,
+			);
+			path = include;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
